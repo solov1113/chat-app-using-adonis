@@ -7,13 +7,17 @@ Route.get('/', () => {
 })
 
 Route.group(()=>{
-  Route.get('users', 'UserController.index')
-  Route.get('users/withroom', 'UserController.showwithroom')
-  Route.get('users/:id', 'UserController.show')
+  Route.get('users', 'UserController.index').middleware(['auth:jwt'])
+  Route.get('users/withroom', 'UserController.showwithroom').middleware(['auth:jwt'])
+  Route.get('users/:id', 'UserController.show').middleware(['auth:jwt'])
   Route.post('users','UserController.store')
-  Route.put('users/:id', 'UserController.update')
-  Route.delete('users/:id', 'UserController.delete')
+  Route.put('users/:id', 'UserController.update').middleware(['auth:jwt'])
+  Route.delete('users/:id', 'UserController.delete').middleware(['auth:jwt'])
 
+  
+}).prefix('api/')
+
+Route.group(()=>{
   Route.get('chats', 'ChatController.index')
   Route.get('chats/:id', 'ChatController.show')
   Route.get('chats/byroom/:id', 'ChatController.showbyroom')
@@ -27,7 +31,6 @@ Route.group(()=>{
   Route.put('rooms/:id', 'RoomController.update')
   Route.delete('rooms/:id', 'RoomController.delete')
 }).prefix('api/').middleware(['auth:jwt'])
-
 Route.group(() => {
   Route.post('login', 'AuthController.postLoginJwt').as('loginJwt')
   Route.post('refresh', 'AuthController.postRefreshTokenJwt').as('refreshTokenJwt').middleware(['auth:jwt'])
