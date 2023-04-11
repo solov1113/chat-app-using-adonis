@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.1.2 (64 bit)
-MySQL - 10.1.38-MariaDB : Database - db_chat2
+MySQL - 10.1.38-MariaDB : Database - db_chat
 *********************************************************************
 */
 
@@ -12,9 +12,9 @@ MySQL - 10.1.38-MariaDB : Database - db_chat2
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_chat2` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_chat` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `db_chat2`;
+USE `db_chat`;
 
 /*Table structure for table `adonis_schema` */
 
@@ -30,7 +30,7 @@ CREATE TABLE `adonis_schema` (
 
 /*Data for the table `adonis_schema` */
 
-insert  into `adonis_schema`(`id`,`name`,`batch`,`migration_time`) values 
+insert  into `adonis_schema`(`id`,`name`,`batch`,`migration_time`) values
 (1,'1503250034279_user',1,'2019-07-02 17:52:49'),
 (2,'1503250034280_token',1,'2019-07-02 17:52:49'),
 (3,'1562063294825_room_schema',1,'2019-07-02 17:52:49'),
@@ -57,7 +57,7 @@ CREATE TABLE `chats` (
 
 /*Data for the table `chats` */
 
-insert  into `chats`(`id`,`text`,`user_id`,`room_id`,`created_at`,`updated_at`) values 
+insert  into `chats`(`id`,`text`,`user_id`,`room_id`,`created_at`,`updated_at`) values
 (3,'asek asek',3,1,'2019-07-02 23:53:09','2019-07-03 00:04:17'),
 (4,'As',1,1,'2019-07-02 23:53:53','2019-07-03 00:08:54'),
 (11,'Ini room 2',2,3,'2019-07-03 01:12:43','2019-07-03 01:12:43'),
@@ -90,7 +90,7 @@ CREATE TABLE `rooms` (
 
 /*Data for the table `rooms` */
 
-insert  into `rooms`(`id`,`name`,`type`,`created_at`,`updated_at`) values 
+insert  into `rooms`(`id`,`name`,`type`,`created_at`,`updated_at`) values
 (1,'Group Bootcamp Batch 10','group','2019-07-02 18:28:40','2019-07-02 18:28:40'),
 (3,'Group Kedua','group','2019-07-02 22:46:22','2019-07-02 22:46:22'),
 (6,'Group Ketiga','group','2019-07-04 21:57:34','2019-07-04 21:57:34');
@@ -116,7 +116,7 @@ CREATE TABLE `tokens` (
 
 /*Data for the table `tokens` */
 
-insert  into `tokens`(`id`,`user_id`,`token`,`type`,`is_revoked`,`created_at`,`updated_at`) values 
+insert  into `tokens`(`id`,`user_id`,`token`,`type`,`is_revoked`,`created_at`,`updated_at`) values
 (1,1,'d01228a5-3eb2-44f7-9501-a4b39f086be5','jwt_refresh_token',0,'2019-07-02 18:26:39','2019-07-02 18:26:39'),
 (2,1,'d9930a6e-790c-4894-aaf9-df4601aead75','jwt_refresh_token',0,'2019-07-02 21:10:51','2019-07-02 21:10:51'),
 (3,1,'dbc5c4c3-417f-47df-99be-76ac987cfdd1','jwt_refresh_token',0,'2019-07-02 22:16:29','2019-07-02 22:16:29'),
@@ -180,7 +180,7 @@ CREATE TABLE `user_rooms` (
 
 /*Data for the table `user_rooms` */
 
-insert  into `user_rooms`(`user_id`,`room_id`) values 
+insert  into `user_rooms`(`user_id`,`room_id`) values
 (1,1),
 (1,3),
 (1,6),
@@ -206,7 +206,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`username`,`email`,`password`,`avatar`,`created_at`,`updated_at`) values 
+insert  into `users`(`id`,`username`,`email`,`password`,`avatar`,`created_at`,`updated_at`) values
 (1,'feri','feri@gmail.com','$2a$10$RWwsI7GR8irlOiLkR2WBDe/nMXE4LV02CvB46ElP28jE3Tt48Ltu2',NULL,'2019-07-02 18:26:06','2019-07-02 18:26:06'),
 (2,'galih','galih@gmail.com','$2a$10$XUPHij.bL31joj2OzADM.efAosKYmKn8LNz9aLJVWrVizLeUlEjCO',NULL,'2019-07-02 23:46:16','2019-07-02 23:46:16'),
 (3,'aden','aden@gmail.com','$2a$10$W0OBCvQUgVbhSK2712GFzuJ3lPjyKJRwqvj9IsL3kgrrfSrpHCcaS',NULL,'2019-07-02 23:46:40','2019-07-02 23:46:40'),
